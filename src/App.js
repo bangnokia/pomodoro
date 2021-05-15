@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import useInterval from './hooks/useInterval';
 
 function App() {
-  const workingMinutes = 0.05;
-  const relaxingMinutes = 0.1;
+  const [workingMinutes, setWorkingMinutes] = useState(25);
+  const [relaxingMinutes, setRelaxingMinutes] = useState(5);
   const [minutes, setMinutes] = useState(workingMinutes);
   const [status, setStatus] = useState('working');
 
@@ -12,19 +12,38 @@ function App() {
     setMinutes(workingMinutes);
   }
 
- function drinkBeer() {
+  function drinkBeer() {
     setStatus('breaking');
     setMinutes(relaxingMinutes);
   }
 
+  function normalMode() {
+    setWorkingMinutes(25);
+    setRelaxingMinutes(5);
+    setMinutes(25);
+    setStatus('working');
+  }
+
+  function hardMode() {
+    setWorkingMinutes(50);
+    setRelaxingMinutes(10);
+    setMinutes(50);
+    setStatus('working');
+  }
+
   return (
-    <div className="App bg-cyan-500">
-      <div className="container">
-        Minutes: <input type="number" className="border" value={minutes}
-          onChange={(e) => setMinutes(e.target.value)} />
-        <div>{minutes}</div>
-        <div>{status}</div>
+    <div className="w-full h-ful min-h-screen bg-cyan-500">
+      <div className="container mx-auto pt-20">
         <Clock minutes={minutes} status={status} work={work} relax={drinkBeer} />
+
+        <div className="block mt-20">
+          <div className="flex w-full justify-center space-x-10">
+            <div onClick={normalMode}
+              className="cursor-pointer border px-16 text-2xl text-gray-700 font-mono py-3 border-white transition hover:bg-white">25/5</div>
+            <div onClick={hardMode}
+              className="cursor-pointer border px-16 text-2xl text-gray-700 font-mono py-3 border-white transition hover:bg-white">50/10</div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -37,8 +56,6 @@ function Clock({ minutes, status, work, relax }) {
   useEffect(() => {
     setSeconds(minutes * 60);
   }, [minutes, status]);
-
-  console.log(seconds);
 
   useInterval(() => {
     setSeconds(seconds - 1)
@@ -79,10 +96,6 @@ function Clock({ minutes, status, work, relax }) {
         </div>
 
       </div>
-      <button type="button" className="border p-3"
-        onClick={() => setRunning(!running)}>
-        {running ? 'pause' : 'start'}
-      </button>
     </div>
   );
 }
