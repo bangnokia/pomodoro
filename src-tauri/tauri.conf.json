@@ -56,9 +56,11 @@
         "title": "Tomodoro",
         "width": 360,
         "height": 700,
+        "minWidth": 360,
+        "minHeight": 500,
         "resizable": true,
         "fullscreen": false,
-        "decorations": false
+        "decorations": true
       }
     ],
     "security": {
