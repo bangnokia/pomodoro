@@ -1,6 +1,6 @@
 {
   "package": {
-    "productName": "Pomodoro",
+    "productName": "Tomodoro",
     "version": "0.1.0"
   },
   "build": {
@@ -13,7 +13,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.dev",
+      "identifier": "com.github.bangnokia.tomodoro",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -23,10 +23,10 @@
       ],
       "resources": [],
       "externalBin": [],
-      "copyright": "",
-      "category": "DeveloperTool",
-      "shortDescription": "",
-      "longDescription": "",
+      "copyright": "MIT",
+      "category": "Tool",
+      "shortDescription": "Simple Pomodoro timer",
+      "longDescription": "Focus your work with pomodoro timer.",
       "deb": {
         "depends": [],
         "useBootstrapper": false
