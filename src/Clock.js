@@ -31,7 +31,7 @@ function Clock({ minutes, status, work, relax }) {
 
   return (
     <div>
-      <div className="clock relative bg-gradient-to-bl from-yellow-500 to-yellow-300 w-64 h-64 mx-auto rounded-full flex items-center cursor-pointer overflow-hidden">
+      <div className="clock relative bg-gradient-to-bl from-yellow-500 to-yellow-200 w-64 h-64 mx-auto rounded-full flex items-center cursor-pointer overflow-hidden">
         <div className="bg-cyan-500 w-60 h-60 mx-auto rounded-full flex items-center">
         </div>
         <div className="absolute w-full font-mono text-center text-white text-4xl tracking-wide">
