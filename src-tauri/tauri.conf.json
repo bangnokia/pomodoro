@@ -24,7 +24,7 @@
       "resources": [],
       "externalBin": [],
       "copyright": "MIT",
-      "category": "Tool",
+      "category": "DeveloperTool",
       "shortDescription": "Simple Pomodoro timer",
       "longDescription": "Focus your work with pomodoro timer.",
       "deb": {
