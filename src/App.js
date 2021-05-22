@@ -9,8 +9,8 @@ function App() {
         [25, 5],
         [50, 10]
     ];
-    const [minutes, setMinutes] = useState(0.1);
-    const [relaxingMinutes, setRelaxingMinutes] = useState(0.05);
+    const [minutes, setMinutes] = useState(25);
+    const [relaxingMinutes, setRelaxingMinutes] = useState(5);
     const [status, setStatus] = useState('working');
     const [pomodoro, setPomodoro] = useState(0);
 
