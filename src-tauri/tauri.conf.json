@@ -54,9 +54,9 @@
     "windows": [
       {
         "title": "Tomodoro",
-        "width": 360,
+        "width": 300,
         "height": 500,
-        "minWidth": 360,
+        "minWidth": 250,
         "minHeight": 500,
         "resizable": true,
         "fullscreen": false,

@@ -9,18 +9,21 @@ function App() {
         [25, 5],
         [50, 10]
     ];
-    const [minutes, setMinutes] = useState(25);
-    const [relaxingMinutes, setRelaxingMinutes] = useState(5);
+    const [minutes, setMinutes] = useState(0.1);
+    const [relaxingMinutes, setRelaxingMinutes] = useState(0.05);
     const [status, setStatus] = useState('working');
     const [pomodoro, setPomodoro] = useState(0);
+    const audio = new Audio(alarmSound);
 
     function work() {
         setStatus('working');
+        audio.play();
     }
 
     function drinkBeer() {
         setStatus('breaking');
         setPomodoro(pomodoro + 1);
+        audio.play();
     }
 
     function changeMode(workingMinutes, relaxingMinutes) {
@@ -30,16 +33,12 @@ function App() {
     }
 
     function playSound() {
-        const audio = new Audio('./sounds/clock.wav');
-        audio.load();
         audio.play();
     }
 
     return (
         <div className="w-full h-screen bg-gray-800">
             <div className="container max-w-xl mx-auto flex items-center flex-col pt-10">
-                <button onClick={() => playSound()} className="border p-2 hidden">Play sound</button>
-
                 <Clock minutes={minutes} status={status} work={work} relax={drinkBeer} />
 
                 <div className="block mt-20">
