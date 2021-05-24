@@ -22,6 +22,7 @@ function Clock({ minutes, status, work, relax }) {
         // pause to prepare working
         setRunning(false);
         work();
+        // here we need to reset time when it pause
       }
     }
   }, running ? 1000 : null);

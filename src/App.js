@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import {notification} from '@tauri-apps/api';
+import { useState } from 'react';
 import Clock from './Clock';
 import alarmSound from './sounds/clock.wav';
 import ProgressBar from './ProgressBar';
@@ -10,6 +9,7 @@ function App() {
         [50, 10]
     ];
     const [minutes, setMinutes] = useState(25);
+    const [workingMinutes, setWorkingMinutes] = useState(25);
     const [relaxingMinutes, setRelaxingMinutes] = useState(5);
     const [status, setStatus] = useState('working');
     const [pomodoro, setPomodoro] = useState(0);
@@ -17,23 +17,22 @@ function App() {
 
     function work() {
         setStatus('working');
+        setMinutes(workingMinutes);
         audio.play();
     }
 
     function drinkBeer() {
         setStatus('breaking');
+        setMinutes(relaxingMinutes);
         setPomodoro(pomodoro + 1);
         audio.play();
     }
 
     function changeMode(workingMinutes, relaxingMinutes) {
-        setMinutes(workingMinutes);
+        setWorkingMinutes(workingMinutes);
         setRelaxingMinutes(relaxingMinutes);
+        setMinutes(workingMinutes);
         setStatus('working');
-    }
-
-    function playSound() {
-        audio.play();
     }
 
     return (
@@ -46,6 +45,7 @@ function App() {
                         {
                             options.map(([w, r]) => (
                                 <div
+                                    key={w}
                                     onClick={() => changeMode(w, r)}
                                     className={`cursor-pointer px-10 text-2xl text-gray-700 font-mono py-3 transition hover:text-green-500 ${w === minutes ? 'text-white' : ''}`}>
                                     {w}/{r}
