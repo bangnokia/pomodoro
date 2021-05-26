@@ -47,7 +47,7 @@ function App() {
                                 <div
                                     key={w}
                                     onClick={() => changeMode(w, r)}
-                                    className={`cursor-pointer px-10 text-2xl text-gray-700 font-mono py-3 transition hover:text-green-500 ${w === minutes ? 'text-white' : ''}`}>
+                                    className={`cursor-pointer px-10 text-2xl text-gray-700 font-mono py-3 transition hover:text-green-500 ${w === minutes || r === minutes ? 'text-white' : ''}`}>
                                     {w}/{r}
                                 </div>
                             ))
